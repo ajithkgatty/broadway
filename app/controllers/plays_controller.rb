@@ -16,9 +16,18 @@ class PlaysController < ApplicationController
   end
 
   def update
+  	if @play.update_attributes(play_params)
+  		redirect_to play_path(@play)
+  	else
+  		redner 'edit'
+  	end
   end
 
   def destroy
+  	if @play.destroy
+  		redirect_to root_path
+  	else
+  	end
   end
 
   def create
